@@ -1,21 +1,34 @@
 package com.company;
 
-import retrofit2.Response;
 
-import java.io.IOException;
+import com.company.Frame.MainFrame;
+import com.company.retrofit.Controller;
+import com.company.retrofit.PhotoService;
+import com.company.retrofit.ApiHolder;
+import com.company.retrofit.model.Picture;
+import com.company.retrofit.model.PicturesCollection;
+import retrofit2.Retrofit;
+
+import javax.swing.*;
+import java.util.List;
 
 public class Main {
+        static Controller CONTROLLER = new Controller();
+        static MainFrame FRAME = new MainFrame();
 
     public static void main(String[] args) {
-	   try {
-           Response<ResponseImpl> response = ApiHolder.createService(Api.class).getpictures("zoo", "uchOxFHxEaz69gYAwGb6UHOVHA_XsKULPPJGmZb9pb4").execute();
-           assert response.body() != null;
-           //response.body().getImages().forEach(System.out::println);
-           System.out.println(response.body().getTotal());
-          System.out.println(response.body().getTotalPages());
-           System.out.println(response.body().getResults());
-       } catch (IOException e) {
-           e.printStackTrace();
-       }
+
+        CONTROLLER.getPictures();
+
+
+
     }
+
+    public static void showUrls(List<Picture> pictures){
+        FRAME.addPictures(pictures);
+        System.out.println("predano");
+           }
+
+
+
 }
