@@ -17,7 +17,7 @@ public class Controller {
         callAsync.enqueue(new Callback<PicturesCollection>() {
             @Override
             public void onResponse(Call<PicturesCollection> call, Response<PicturesCollection> response) {
-                Main.showUrls(response.body().getResults());
+                Main.calculateImages(response.body().getResults());
             }
 
             @Override
@@ -26,5 +26,4 @@ public class Controller {
             }
         });
     }
-
 }
