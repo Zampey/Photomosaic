@@ -23,7 +23,7 @@ public class MainFrame extends JFrame {
         mosaicPanel = new JPanel();
         frameSetup();
         frame.add(mPanel.mosaicPanelSetup());
-        frame.add(btn.btnSetup());
+        frame.add(btn.getBtn());
         frame.setVisible(true);
         frame.validate();
     }
